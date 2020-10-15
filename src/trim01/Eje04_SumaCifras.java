@@ -9,7 +9,7 @@ public class Eje04_SumaCifras {
 		
 		System.out.println("Dame un número");
 		int num = sc.nextInt();
-		int r = 0, s = 0;
+		int r = 0, s = 0; // r es el resto y s la suma de las cifras
 		
 		do {
 			r = num % 10;

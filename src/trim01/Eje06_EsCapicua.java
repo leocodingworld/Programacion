@@ -6,8 +6,9 @@ public class Eje06_EsCapicua {
 
 	public static int invertirCifras(int n) {
 		int n2 = n;
-
-		int r = n%10;
+		
+		// Puede que los número menores de 10, por eso se hace una antes de entrar al bucle
+		int r = n % 10;
 		int inv = r;
 		n /= 10;
 		

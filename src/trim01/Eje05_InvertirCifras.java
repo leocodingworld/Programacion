@@ -9,7 +9,8 @@ public class Eje05_InvertirCifras {
 
 		System.out.print("Dame un numero ");
 		int n = sc.nextInt();
-		int n2 = n;
+		int n2 = n; // n2 es el número que inicialmente se introduce por teclado
+		// se guarda para compararlo más tarde
 
 		int r = n%10;
 		int inv = r;

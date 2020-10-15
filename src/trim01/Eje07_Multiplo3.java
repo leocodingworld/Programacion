@@ -20,6 +20,7 @@ public class Eje07_Multiplo3 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		
+		System.out.println("Introduce un numero");
 		int num = sc.nextInt();
 		int s = num;
 		
