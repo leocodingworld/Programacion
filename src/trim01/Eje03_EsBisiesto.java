@@ -2,7 +2,7 @@ package trim01;
 
 import java.util.Scanner;
 
-public class EsBisiesto {
+public class Eje03_EsBisiesto {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);

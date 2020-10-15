@@ -1,6 +1,6 @@
 package trim01;
 
-public class Multiplos7_10 {
+public class Eje09_Multiplos7_10 {
 	
 	public static void main(String[] args) {
 		int c = 1;

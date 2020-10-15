@@ -2,7 +2,7 @@ package trim01;
 
 import java.util.Scanner;
 
-public class Multiplo3 {
+public class Eje07_Multiplo3 {
 
 	public static int sumarCifras(int n) {
 		int r = 0, s = 0;

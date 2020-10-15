@@ -2,7 +2,7 @@ package trim01;
 
 import java.util.Scanner;
 
-public class InvertirCifras {
+public class Eje05_InvertirCifras {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);

@@ -2,7 +2,7 @@ package trim01;
 
 import java.util.Scanner;
 
-public class SumaCifras {
+public class Eje04_SumaCifras {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);

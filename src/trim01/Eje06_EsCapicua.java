@@ -2,7 +2,7 @@ package trim01;
 
 import java.util.Scanner;
 
-public class EsCapicua {
+public class Eje06_EsCapicua {
 
 	public static int invertirCifras(int n) {
 		int n2 = n;

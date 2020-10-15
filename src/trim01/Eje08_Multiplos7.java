@@ -1,6 +1,6 @@
 package trim01;
 
-public class Multiplos7 {
+public class Eje08_Multiplos7 {
 
 	public static void main(String[] args) {
 		for (int i = 1; i <= 75; i++) {

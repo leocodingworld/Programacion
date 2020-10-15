@@ -2,7 +2,7 @@ package trim01;
 
 import java.util.Scanner;
 
-public class EsPar {
+public class Eje01_EsPar {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
