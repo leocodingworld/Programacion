@@ -21,9 +21,15 @@ public class Multiplo3 {
 		Scanner sc = new Scanner(System.in);
 		
 		int num = sc.nextInt();
-		int s = 0;
+		int s = num;
 		
+		do {
+			s = sumarCifras(s);
+		} while (s > 10);
 		
+		if(s == 3 || s == 6 || s == 9) {
+			System.out.println("Es múltiplo");
+		}
 
 	}
 
