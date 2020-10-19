@@ -22,13 +22,12 @@ public class Eje07_Multiplo3 {
 		
 		System.out.println("Introduce un numero");
 		int num = sc.nextInt();
-		int s = num;
 		
 		do {
-			s = sumarCifras(s);
-		} while (s > 10);
+			num = sumarCifras(num);
+		} while (num > 10);
 		
-		if(s == 3 || s == 6 || s == 9) {
+		if(num == 3 || num == 6 || num == 9) {
 			System.out.println("Es múltiplo");
 		}
 
