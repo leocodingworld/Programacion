@@ -1,4 +1,4 @@
-package bloqueEjercicios1;
+package trim01.bloqueEjercicios01;
 
 public class Eje08_Multiplos7 {
 
