@@ -1,12 +1,10 @@
-package trim01;
+package bloqueEjercicios1;
 
 import java.util.Scanner;
 
 public class Eje06_EsCapicua {
 
 	public static int invertirCifras(int n) {
-		
-		// Puede que los número menores de 10, por eso se hace una antes de entrar al bucle
 		int r = 0;
 		int inv = 0;
 		

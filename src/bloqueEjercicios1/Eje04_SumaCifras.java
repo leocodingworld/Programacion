@@ -1,4 +1,4 @@
-package trim01;
+package bloqueEjercicios1;
 
 import java.util.Scanner;
 
