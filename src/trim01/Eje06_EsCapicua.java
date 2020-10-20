@@ -5,18 +5,16 @@ import java.util.Scanner;
 public class Eje06_EsCapicua {
 
 	public static int invertirCifras(int n) {
-		int n2 = n;
 		
 		// Puede que los número menores de 10, por eso se hace una antes de entrar al bucle
-		int r = n % 10;
-		int inv = r;
-		n /= 10;
+		int r = 0;
+		int inv = 0;
 		
-		while (n > 0){
-			r = n % 10;
-			inv = inv * 10 + r;
-			n /= 10;
-		}
+		do {
+	        r = n % 10;
+	        inv = inv * 10 + r;
+	        n /= 10;
+	    } while (n > 0);
 		
 		return inv;
 	}
@@ -31,8 +29,7 @@ public class Eje06_EsCapicua {
 			System.out.println("Es capicua");
 		} else {
 			System.out.println("No es capicua");
-		}
-		
+		}		
 
 	}
 
