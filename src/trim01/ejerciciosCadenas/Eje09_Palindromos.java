@@ -40,6 +40,7 @@ public class Eje09_Palindromos {
         } else {
             System.out.println("Es una frase corriente");
         }
+        
 	}
 	
 }
