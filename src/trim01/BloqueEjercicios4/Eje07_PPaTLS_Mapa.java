@@ -17,8 +17,6 @@ public class Eje07_PPaTLS_Mapa {
 		opcion.put(3,"Lagarto");
 		opcion.put(4,"Spock");
 		
-		String opUser;
-		String opCpu;
 		int[][] matrix = {
 			{ 0, 1,-1,-1,-1},
 			{ 1, 0,-1,-1, 1},
@@ -27,8 +25,7 @@ public class Eje07_PPaTLS_Mapa {
 			{-1,-1, 1,-1, 0}
 		};
 
-		int optu;
-		int optcpu;
+		int optu, optcpu;
 		int ganaUser = 0;
 		int ganaCpu = 0;
 		int empates = 0;

@@ -2,7 +2,6 @@ package trim01.BloqueEjercicios4;
 
 import java.util.Random;
 import java.util.Scanner;
-import java.util.HashMap;
 
 public class Eje07_PPaTLS {
 	
@@ -34,13 +33,6 @@ public class Eje07_PPaTLS {
 		Scanner sc = new Scanner(System.in);
 		Random r = new Random();
 		
-		HashMap<Integer, String> opcion = new HashMap<Integer,String>();
-		opcion.put(0, "Piedra");
-		opcion.put(1, "Papel");
-		opcion.put(2, "Tijera");
-		opcion.put(3, "Lagarto");
-		opcion.put(4, "Spcok");
-		
 		String opUser;
 		String opCpu;
 		int[][] matrix = {
@@ -67,8 +59,8 @@ public class Eje07_PPaTLS {
 			optu = sc.nextInt() - 1;
 			optcpu = r.nextInt(5);
 			
-			System.out.println("Usuario saca " + opcion.get(optu));
-			System.out.println("CPU saca " + opcion.get(optcpu));
+			System.out.println("Usuario saca " + opcion(optu));
+			System.out.println("CPU saca " + opcion(optcpu));
 			
 			switch(matrix[optu][optcpu]) {
 				case 0:
