@@ -1,37 +1,22 @@
-package trim01.BloqueEjercicios04;
+package trim01.bloqueEjercicios04;
 
+import java.util.HashMap;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Eje07_PiedraPapelTijeraLagartoSpock {
-	
-	public static String opcion(int opt) {
-		String objecto = "";
-		
-		switch(opt) {
-			case 0:
-				objecto = "Piedra";
-				break;
-			case 1:
-				objecto = "Papel";
-				break;
-			case 2:
-				objecto = "Piedra";
-				break;
-			case 3:
-				objecto = "Lagarto";
-				break;
-			case 4:
-				objecto = "Spock";
-				break;
-		}
-		
-		return objecto;
-	}
+public class Eje07_PiedraPapelTijeraLagartoSpock_Mapa {
 	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		Random r = new Random();
+		
+		//No haced caso a esto. 
+		HashMap<Integer, String> opcion = new HashMap<Integer,String>();
+		opcion.put(0,"Piedra");
+		opcion.put(1,"Papel");
+		opcion.put(2,"Tijeras");
+		opcion.put(3,"Lagarto");
+		opcion.put(4,"Spock");
 		
 		int[][] matrix = {
 			{ 0, 1,-1,-1,-1},
@@ -41,8 +26,7 @@ public class Eje07_PiedraPapelTijeraLagartoSpock {
 			{-1,-1, 1,-1, 0}
 		};
 
-		int optu;
-		int optcpu;
+		int optu, optcpu;
 		int ganaUser = 0;
 		int ganaCpu = 0;
 		int empates = 0;
@@ -57,8 +41,8 @@ public class Eje07_PiedraPapelTijeraLagartoSpock {
 			optu = sc.nextInt() - 1;
 			optcpu = r.nextInt(5);
 			
-			System.out.println("Usuario saca " + opcion(optu));
-			System.out.println("CPU saca " + opcion(optcpu));
+			System.out.println("Usuario saca " + opcion.get(optu));
+			System.out.println("CPU saca " + opcion.get(optcpu));
 			
 			switch(matrix[optu][optcpu]) {
 				case 0:
@@ -90,5 +74,4 @@ public class Eje07_PiedraPapelTijeraLagartoSpock {
 		}
 
 	}
-	
 }
