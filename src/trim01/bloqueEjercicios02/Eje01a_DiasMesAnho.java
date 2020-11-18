@@ -2,9 +2,9 @@ package trim01.bloqueEjercicios02;
 
 import java.util.Scanner;
 
-public class Eje01_DiasMesAnho {
+public class Eje01a_DiasMesAnho {
 	
-	public static boolean esBisiesto(short anho) {
+	public static boolean esBisiesto(int anho) {
 		boolean es = false;
 		
 		if(anho % 4 == 0 && (anho % 100 != 0 || anho % 400 == 0)) {
@@ -14,8 +14,8 @@ public class Eje01_DiasMesAnho {
 		return es;
 	}
 	
-	public static short diasAhno(short anho) {
-		short dias = 365;
+	public static int diasAhno(int anho) {
+		int dias = 365;
 		
 		if(esBisiesto(anho)) {
 			dias++;
@@ -24,8 +24,8 @@ public class Eje01_DiasMesAnho {
 		return dias;
 	}
 
-	public static byte diasMes(byte mes, short anho) {
-		byte dias = 28;
+	public static int diasMes(int mes, int anho) {
+		int dias = 28;
 		
 		switch (mes) {
 			case 1:
@@ -55,18 +55,14 @@ public class Eje01_DiasMesAnho {
 		Scanner sc = new Scanner(System.in);
 		
 		System.out.print("Dime un mes: ");
-		byte mes = sc.nextByte();
+		int mes = sc.nextInt();
 		
 		System.out.print("Dime un año: ");
-		short anyo = sc.nextShort();
-		
-		boolean es = esBisiesto(anyo);
-		short diasA = diasAhno(anyo);
-		byte diasM = diasMes(mes,anyo);
+		int anyo = sc.nextInt();
 		
 		System.out.println("El mes " + mes + " tiene " + diasMes(mes,anyo) + " días");
 		System.out.println("El año " + anyo + " tiene " + diasAhno(anyo) + " días");
 
 	}
-
+	
 }
