@@ -1,4 +1,4 @@
-package trim01.BloqueEjercicios4;
+package trim01.BloqueEjercicios04;
 
 public class Eje05_Fibonacci {
 	
