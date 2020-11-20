@@ -38,6 +38,7 @@ public class Eje05_Fibonacci {
 	}
 	
 	public static void main(String[] args) {
+		//Fibonacci iterativo
 		fiboItera(8);
 		
 		System.out.println();
