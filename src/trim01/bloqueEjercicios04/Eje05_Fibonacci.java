@@ -2,18 +2,20 @@ package trim01.bloqueEjercicios04;
 
 public class Eje05_Fibonacci {
 	
-	public static int fiboItera(int n) {
-		int n0 = 0;
-		int n1 = 1;
-		int f = 0;
+	public static void fiboItera(int n) {
+		int[] f = new int[n];
+		f[0] = 0;
+		f[1] = 1;
 		
-		for(int i = 1; i <= n; i++) {
-			f = n0 + n1;
-			n0 = n1;
-			n1 = f ;			
+		System.out.println(f[0]);
+		System.out.println(f[1]);
+		
+		for(int i = 2; i < n; i++) {
+			f[i] = f[i-1] + f[i-2];
+			
+			System.out.println(f[i]);
 		}
 		
-		return f;
 				
 	}
 	
@@ -36,11 +38,13 @@ public class Eje05_Fibonacci {
 	}
 	
 	public static void main(String[] args) {
+		fiboItera(8);
 		
-		for(int i = 1; i <= 5; i++) {
-			System.out.println(fiboItera(i-1));
+		System.out.println();
+		
+		for(int i = 0; i < 8; i++) {
+			System.out.println(fiboRecu(i));
 		}
-		
 	}
 	
 }

@@ -10,7 +10,9 @@ public class Eje07_PiedraPapelTijeraLagartoSpock_Mapa {
 		Scanner sc = new Scanner(System.in);
 		Random r = new Random();
 		
-		//No haced caso a esto. 
+		// olvidad este ejercicio
+		// Esto lo hice con un amigo para probar cosas nuevas
+		// mirad el otro ejercicio
 		HashMap<Integer, String> opcion = new HashMap<Integer,String>();
 		opcion.put(0,"Piedra");
 		opcion.put(1,"Papel");
@@ -41,7 +43,7 @@ public class Eje07_PiedraPapelTijeraLagartoSpock_Mapa {
 			optu = sc.nextInt() - 1;
 			optcpu = r.nextInt(5);
 			
-			System.out.println("Usuario saca " + opcion.get(optu));
+			System.out.println("\nUsuario saca " + opcion.get(optu));
 			System.out.println("CPU saca " + opcion.get(optcpu));
 			
 			switch(matrix[optu][optcpu]) {

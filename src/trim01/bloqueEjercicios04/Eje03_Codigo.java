@@ -1,9 +1,21 @@
 package trim01.bloqueEjercicios04;
 
+import java.util.Random;
+
 public class Eje03_Codigo {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		Random r = new Random();
+		
+		int[] codigo = {
+				r.nextInt(10),
+				r.nextInt(10),
+				r.nextInt(10),
+				r.nextInt(10),
+				r.nextInt(10)				
+		};
+		
+		
 
 	}
 
