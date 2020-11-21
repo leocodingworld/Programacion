@@ -19,7 +19,7 @@ public class Eje02_NumeroXTeclado {
 		String n;
 		
 		do {
-			System.out.println("Introduce un número");
+			System.out.print("Introduce un número: ");
 			n = sc.nextLine();
 			
 			if(esNumero(n)) {

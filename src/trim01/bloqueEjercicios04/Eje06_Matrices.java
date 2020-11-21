@@ -3,7 +3,7 @@ package trim01.bloqueEjercicios04;
 public class Eje06_Matrices {
 	
 	public static int[][] suma(int[][] m1, int[][] m2){
-		int[][] matriz = new int[m1.length][m1.length];
+		int[][] matriz = new int[m1.length][m1[0].length];
 
 		for(int i = 0; i <= m1.length - 1; i++){
 			for(int j = 0; j <= m1[0].length - 1; j++){
@@ -15,7 +15,7 @@ public class Eje06_Matrices {
 	}
 
 	public static int[][] resta(int[][] m1, int[][] m2){
-		int[][] matriz = new int[m1.length][m1.length];
+		int[][] matriz = new int[m1.length][m1[0].length];
 
 		for(int i = 0; i < m1.length; i++){
 			for(int j = 0; j < m1[0].length; j++){
@@ -27,7 +27,7 @@ public class Eje06_Matrices {
 	}
 
 	public static int[][] escalar(int[][] m1, int alfa){
-		int[][] matriz = new int[m1.length][m1.length];
+		int[][] matriz = new int[m1.length][m1[0].length];
 
 		for(int i = 0; i < m1.length; i++){
 			for(int j = 0; j < m1[0].length; j++){
@@ -44,7 +44,7 @@ public class Eje06_Matrices {
 
 		for(int i = 0; i < m1.length; i++){
 
-			for(int j = 0; j < m2.length; j++){
+			for(int j = 0; j < m2[0].length; j++){
 				e = 0;
 				
 				for(int k = 0; k < m1.length; k++){
@@ -73,7 +73,7 @@ public class Eje06_Matrices {
 	public static void main(String[] args) {
 		int[][] a = {
 			{1,2},
-			{3,4}
+			{3,4},
 		};
 		
 		int[][] b = {
@@ -81,7 +81,7 @@ public class Eje06_Matrices {
 			{ 0,5}
 		};
 		
-		int [][] c = {
+		int[][] c = {
 			{ 0,2,1},
 			{-1,6,4}
 		};
@@ -103,5 +103,7 @@ public class Eje06_Matrices {
 		System.out.println("\n");
 
 	}
+	
+	
 
 }

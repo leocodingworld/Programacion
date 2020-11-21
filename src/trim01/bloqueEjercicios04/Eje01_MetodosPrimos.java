@@ -20,8 +20,7 @@ public class Eje01_MetodosPrimos {
 					num % 5 != 0 &&
 					num % 7 != 0
 				){
-					primo = !primo;
-	
+					primo = !primo;	
 				}
 	
 				break;
@@ -32,14 +31,12 @@ public class Eje01_MetodosPrimos {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		int n1;
-		int n2;
-
+		
 		System.out.print("Primer número: ");
-		n1 = sc.nextInt();
+		int n1 = sc.nextInt();
 
 		System.out.print("Segundo número: ");
-		n2 = sc.nextInt();
+		int n2 = sc.nextInt();
 
 		for(int i = n1; i <= n2; i++){
 			if(esPrimo(i)){
