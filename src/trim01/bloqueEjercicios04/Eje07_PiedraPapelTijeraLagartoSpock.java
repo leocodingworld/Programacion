@@ -34,11 +34,11 @@ public class Eje07_PiedraPapelTijeraLagartoSpock {
 		Random r = new Random();
 		
 		int[][] matrix = {
-			{ 0, 1,-1,-1,-1},
+			{ 0,-1, 1, 1,-1},
 			{ 1, 0,-1,-1, 1},
 			{-1, 1, 0, 1,-1},
-			{-1, 1,-1, 0,-1},
-			{-1,-1, 1,-1, 0}
+			{-1, 1,-1, 0, 1},
+			{ 1,-1, 1,-1, 0}
 		};
 
 		int optu;
