@@ -37,7 +37,7 @@ public class Eje03_Mediana {
 	}
 	
 	public static void main(String[] args) {
-		int[] a = order(generador(10));
+		int[] a = order(generador(1000));
 		
 		for(int i: a){
 			System.out.println(i);
