@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Eje03_Mediana {
 
-	public static int[] order(int[] a){
+	public static int[] ordenarVector(int[] a){
 		int[] ordenado = new int[a.length];
 		int menor = a[0];
 		int menorAnterior = -1 ;
@@ -37,7 +37,7 @@ public class Eje03_Mediana {
 	}
 	
 	public static void main(String[] args) {
-		int[] a = order(generador(1000));
+		int[] a = ordenarVector(generador(1000));
 		
 		for(int i: a){
 			System.out.println(i);

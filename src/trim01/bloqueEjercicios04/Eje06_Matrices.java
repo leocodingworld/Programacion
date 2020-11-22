@@ -42,9 +42,9 @@ public class Eje06_Matrices {
 		int[][] matriz = new int[m1.length][m2[0].length];
 		int e;
 
-		for(int i = 0; i < m1.length; i++){
+		for(int i = 0; i < m1[0].length; i++){
 
-			for(int j = 0; j < m2[0].length; j++){
+			for(int j = 0; j < m2.length; j++){
 				e = 0;
 				
 				for(int k = 0; k < m1.length; k++){
@@ -102,8 +102,6 @@ public class Eje06_Matrices {
 		sacarMatrix(escalar(a,5));
 		System.out.println("\n");
 
-	}
-	
-	
+	}	
 
 }
