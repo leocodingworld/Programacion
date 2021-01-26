@@ -21,11 +21,11 @@ public class Eje07_PiedraPapelTijeraLagartoSpock_Mapa_NoMirar {
 		opcion.put(4,"Spock");
 		
 		int[][] matrix = {
-			{ 0, 1,-1,-1,-1},
+			{ 0,-1, 1, 1,-1},
 			{ 1, 0,-1,-1, 1},
 			{-1, 1, 0, 1,-1},
-			{-1, 1,-1, 0,-1},
-			{-1,-1, 1,-1, 0}
+			{-1, 1,-1, 0, 1},
+			{ 1,-1, 1,-1, 0}
 		};
 
 		int optu, optcpu;

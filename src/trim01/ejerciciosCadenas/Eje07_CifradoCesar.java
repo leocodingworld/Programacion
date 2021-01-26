@@ -17,25 +17,40 @@ public class Eje07_CifradoCesar {
         for(int i = 0; i < frase.length(); i++){
             clave = frase.charAt(i);
             
-            switch(clave){
-                case 'x':
-                    codigo = (int)'a';
-                    break;
-                case 'y':
-                    codigo = (int)'b';
-                    break;
-                case 'z':
-                    codigo = (int)'c';
-                    break;
-                case 'ñ':
-                    codigo = (int)'n';
-                    codigo += des;
-                    break;
-                default:
-                    codigo = (int) clave;
-                    codigo += des;
-                    break;
-            }
+		    switch(clave){
+				case 'a':
+				case 'b':
+				case 'c':
+					codigo = (int) clave;
+					codigo += des;
+		
+					if(des == -3){
+						codigo += 26;
+					}
+		
+					break;
+				case 'x':
+				case 'y':
+				case 'z':
+					codigo = (int) clave;
+					codigo += des;
+		
+					if(des == 3){
+						codigo += -26;
+					}
+		
+					break;
+				case 'ñ':
+					codigo = (int)'n';
+					codigo += des;
+					
+					break;
+				default:
+					codigo = (int) clave;
+					codigo += des;
+					
+					break;
+			}
             
             clave = (char) codigo;
             

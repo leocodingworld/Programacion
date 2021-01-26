@@ -15,7 +15,9 @@ public class Eje04_SumaCifras {
 			r = num % 10;
 			num /= 10;
 			
-			s += r;
+			if( r % 2 != 0) {
+				s += r;
+			}
 		} while (num != 0);
 
 		System.out.println(s);

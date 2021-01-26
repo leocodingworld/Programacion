@@ -16,7 +16,7 @@ public class Eje07_PiedraPapelTijeraLagartoSpock {
 				objecto = "Papel";
 				break;
 			case 2:
-				objecto = "Piedra";
+				objecto = "Tijera";
 				break;
 			case 3:
 				objecto = "Lagarto";
