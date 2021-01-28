@@ -1,4 +1,4 @@
-package trim02.coche;
+package trim02.poo.coche;
 
 import java.util.Objects;
 
