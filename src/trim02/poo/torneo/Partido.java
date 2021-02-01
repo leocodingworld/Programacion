@@ -14,4 +14,5 @@ public class Partido {
 		this.equipo1.aumentarValoracion();
 		this.equipo2.aumentarValoracion();
 	}
+	
 }
