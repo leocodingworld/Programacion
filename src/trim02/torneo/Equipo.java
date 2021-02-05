@@ -1,4 +1,4 @@
-package trim02.poo.torneo;
+package trim02.torneo;
 
 import java.util.Scanner;
 

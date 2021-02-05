@@ -1,4 +1,4 @@
-package trim02.poo.utilidades;
+package trim02.utilidades;
 
 import java.util.Random;
 import java.util.Scanner;
