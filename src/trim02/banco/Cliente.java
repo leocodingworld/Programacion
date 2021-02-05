@@ -111,7 +111,7 @@ public class Cliente {
 		return "Cliente{" + "nombre=" + nombre + ", alias=" + alias + ", anhoNac=" + anhoNac + '}';
 	}
 	
-	public String toString(String clave) {
+	public String toStringPrivado(String clave) {
 		if(clave.equals(CLAVE_SECRETA)){
 			return "Cliente{" + "nombre=" + nombre + ", alias=" + alias + ", anhoNac=" + anhoNac + ", clave=" + this.clave + '}';
 		} else {

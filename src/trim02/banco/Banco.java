@@ -73,7 +73,7 @@ public class Banco {
 					System.out.print("Introduce el PIN: ");
 					pin = sc.next();
 					
-					System.out.println(c1.toString(pin));
+					System.out.println(c1.toStringPrivado(pin));
 					break;
 				case 4:
 					System.out.print("Introducir clave: ");
