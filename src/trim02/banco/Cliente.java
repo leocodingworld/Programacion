@@ -2,29 +2,37 @@ package trim02.banco;
 
 public class Cliente {
 	
+	// Definicion de los atributos de la clase
 	private String nombre;
-	private String alias;
+	private String cadena;
 	private String anhoNac;
 	private String clave;
 	
+	// Constante para pedir la clave de cada cliente
 	private final String CLAVE_SECRETA = "Aa12";
 
+	// Constructores
+	// Constructor vacio
 	public Cliente() {}
 
+	// Constructor con todos los atributos menos con clave,
+	// Que se autogenera con un metodo estático y privado
 	public Cliente(String nombre, String alias, String anhoNac) {
 		this.nombre = nombre;
-		this.alias = alias;
+		this.cadena = alias;
 		this.anhoNac = anhoNac;
 		this.clave = generarClave(alias,anhoNac);
 	}
 	
+	// Constructor copia o "Clonador"
 	public Cliente(Cliente other){
 		this.nombre = other.nombre;
-		this.alias = other.alias;
+		this.cadena = other.cadena;
 		this.anhoNac = other.anhoNac;
 		this.clave = other.clave;
 	}
 
+	// Getters y Setter de la mayoría de atributos
 	public String getNombre() {
 		return nombre;
 	}
@@ -34,11 +42,11 @@ public class Cliente {
 	}
 
 	public String getAlias() {
-		return alias;
+		return cadena;
 	}
 
 	public void setAlias(String alias) {
-		this.alias = alias;
+		this.cadena = alias;
 	}
 
 	public String getAnhoNac() {
@@ -50,23 +58,26 @@ public class Cliente {
 	}
 
 	public String getClave() {
-		return clave;
-	}
-
-	public void setClave() {
-		this.clave = generarClave(this.alias,this.anhoNac);
+		 return clave; 
 	}
 	
+	public void setClave() {
+		this.clave = generarClave(this.cadena,this.anhoNac);
+	}
+	
+	// Metodos de validación
+	// El nombre es valido si tiene entre 5 y 25 caracteres
 	public static boolean validarNombre(String nombre){
 		boolean valido = false;
 		
-		if(nombre.matches("[aA-zZ]{5,25}")){
+		if(nombre.matches("[a-zA-Z]{5,25}")){
 			valido = true;
 		}
 		
 		return valido;
 	}
 	
+	// El alias debe ser 5 caracteres en mayúsculas
 	public static boolean validarAlias(String alias){
 		boolean valido = false;
 		
@@ -88,36 +99,37 @@ public class Cliente {
 		return valido;
 	}
 	
-	private static String generarClave(String alias, String fecha){
-		String clave = "";
-		String a = "";
-		String f = "";
-		
-		for(int i = alias.length() - 1; i >= 0; i--){
-			a += alias.charAt(i);
-		}
-		
-		for(int i = fecha.length() - 1; i >= 0; i--){
-			f += fecha.charAt(i);
-		}
-		
-		clave = f + "-" + a;
+	private static String generarClave(String alias, String fecha){	
+		String a = invertirCadena(alias);
+		String f = invertirCadena(fecha);
+		String clave = f + "-" + a;
 		
 		return clave;
+	}
+	
+	public static String invertirCadena(String cadena) {
+		String invertido = "";
+		
+		for(int i = cadena.length() - 1; i >= 0; i--){
+			invertido += cadena.charAt(i);
+		}
+		
+		return invertido;
 	}
 
 	@Override
 	public String toString() {
-		return "Cliente{" + "nombre=" + nombre + ", alias=" + alias + ", anhoNac=" + anhoNac + '}';
+		return "Cliente{" + "nombre=" + nombre + ", alias=" + cadena + ", anhoNac=" + anhoNac + '}';
 	}
 	
 	public String toStringPrivado(String clave) {
 		if(clave.equals(CLAVE_SECRETA)){
-			return "Cliente{" + "nombre=" + nombre + ", alias=" + alias + ", anhoNac=" + anhoNac + ", clave=" + this.clave + '}';
+			return "Cliente{" + "nombre=" + nombre + ", alias=" + cadena + ", anhoNac=" + anhoNac + ", clave=" + this.clave + '}';
 		} else {
 			System.out.println("Acceso denegado");
 			return this.toString();
 		}
 		
 	}
+	
 }
