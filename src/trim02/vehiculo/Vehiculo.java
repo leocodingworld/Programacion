@@ -5,17 +5,37 @@ public class Vehiculo {
 	private String matricula;
 	private String conductor;
 	
+	public Vehiculo() {}
+
+	public Vehiculo(String matricula, String conductor) {
+		this.matricula = matricula;
+		this.conductor = conductor;
+	}
+
+	public String getMatricula() {
+		return matricula;
+	}
+
+	public void setMatricula(String matricula) {
+		this.matricula = matricula;
+	}
+
+	public String getConductor() {
+		return conductor;
+	}
+
+	public void setConductor(String conductor) {
+		this.conductor = conductor;
+	}
+		
 	public float calcularCuota() {
 		return 250.0f;
 	}
 	
 	public String verFicha() {
-		return this.toString();
+		return "Vehículo:\n" +
+				"\tMatricula: " + this.matricula +
+				"\tConductor: " + this.conductor;
 	}
-	
-	@Override
-	public String toString() {
-		return "Vehiculo [matricula=" + matricula + ", conductor=" + conductor + "]";
-	}
-	
+
 }
