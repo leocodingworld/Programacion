@@ -7,11 +7,12 @@ public class Coche extends Vehiculo{
 	
 	public Coche() {}
 
-	public Coche(String matricula, String conductor, int numPuertas, int factorPot) {
-		super(matricula, conductor);
+	public Coche(String matricula, int numPuertas, int factorPot) {
+		super(matricula);
 		this.numPuertas = numPuertas;
 		this.factorPot = factorPot;
 	}
+
 
 	public int getNumPuertas() {
 		return numPuertas;

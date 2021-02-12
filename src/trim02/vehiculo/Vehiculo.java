@@ -6,11 +6,11 @@ public class Vehiculo {
 	private String conductor;
 	
 	public Vehiculo() {}
-
-	public Vehiculo(String matricula, String conductor) {
+	
+	public Vehiculo(String matricula) {
 		this.matricula = matricula;
-		this.conductor = conductor;
 	}
+
 
 	public String getMatricula() {
 		return matricula;

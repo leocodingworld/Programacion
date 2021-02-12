@@ -2,23 +2,23 @@ package trim02.vehiculo;
 
 public class Moto extends Vehiculo {
 	
-	private int cilidrada;
+	private int cilindrada;
 	private int factorPot;
 	
 	public Moto() {}
-
-	public Moto(String matricula, String conductor, int cilindrada) {
-		super(matricula, conductor);
-		this.cilidrada = cilindrada;
-		this.factorPot = setFactorPot(cilindrada);
+	
+	public Moto(String matricula, int cilidrada) {
+		super(matricula);
+		this.cilindrada = cilidrada;
+		this.factorPot = setFactorPot(cilidrada);
 	}
 
 	public int getCilidrada() {
-		return cilidrada;
+		return cilindrada;
 	}
 
 	public void setCilidrada(int cilidrada) {
-		this.cilidrada = cilidrada;
+		this.cilindrada = cilidrada;
 	}
 
 	public int getFactorPot() {
@@ -42,7 +42,7 @@ public class Moto extends Vehiculo {
 	@Override
 	public String verFicha() {
 		return super.verFicha() + "\n" +
-				"\tCilindrada: " + this.cilidrada + "\n" +
+				"\tCilindrada: " + this.cilindrada + "\n" +
 				"\tFactor de Potencia: " + this.factorPot; 
 	}
 
