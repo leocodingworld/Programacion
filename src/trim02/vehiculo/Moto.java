@@ -19,14 +19,15 @@ public class Moto extends Vehiculo {
 
 	public void setCilidrada(int cilidrada) {
 		this.cilindrada = cilidrada;
+		this.factorPot = setFactorPot(cilidrada);
 	}
 
 	public int getFactorPot() {
 		return factorPot;
 	}
 	
-	private static byte setFactorPot(int cilindros){
-		byte pot = 0;
+	private static int setFactorPot(int cilindros){
+		int pot = 0;
 		
 		if(cilindros < 250) {
 			pot = 1;

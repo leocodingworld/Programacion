@@ -1,11 +1,11 @@
 package trim02.vehiculo;
 
 import java.util.Scanner;
-import java.util.ArrayList;
 
 public class VehiculoIO {
 	
 	private static final String MATRICULA_DEF = "AAAA001";
+	private static final String CONDUCTOR = "Usuario1";
 	private static final int NUM_PUERTAS = 4;
 	private static final int FACTOR_COCHE = 3;
 	private static final int CILINDROS = 6;
@@ -21,99 +21,86 @@ public class VehiculoIO {
 	public static boolean validarPuertas(int puertas) {
 		return puertas >= 2 && puertas <= 5;
 	}
-
-	public static Vehiculo crear(Vehiculo vuser){
+	
+	public static Vehiculo crear(){
 		Scanner sc = new Scanner(System.in);
-		int opt = 0;
-
-		System.out.print("Puedes escoger entre un coche (1) o una moto (2): ");
+		Vehiculo escogido = new Vehiculo();
+		int v = 0;
 
 		do {
-			opt = sc.nextInt();
+			System.out.print("¿Quieres un Coche(1) o una Moto(2)? ");
+			v = sc.nextInt();
 
-			if(opt == 1){
-				vuser = (Coche) vuser;
-				
-				vuser.setMatricula(MATRICULA_DEF);
-				((Coche) vuser).setNumPuertas(NUM_PUERTAS);
-				((Coche) vuser).setFactorPot(FACTOR_COCHE);
-			} else if (opt == 2){
-				vuser = (Moto) vuser;
-				
-				vuser.setMatricula(MATRICULA_DEF);
-				((Moto) vuser).setCilidrada(CILINDROS);
-			} else {
-				System.out.print("No es válido, escoge de nuevo:");
+			if(v != 1 && v != 2){
+				System.out.println("Opción no válida.");
 			}
 
-		} while(opt < 1 || opt > 2);
+		} while(v != 1 && v != 2);
 
-		return vuser;
+		if(v == 1) {
+			escogido = new Coche(MATRICULA_DEF,NUM_PUERTAS,FACTOR_COCHE);
+		} else {
+			escogido = new Moto(MATRICULA_DEF,CILINDROS);
+		}
+
+		return escogido;
 	}
 
-	public static Vehiculo escoger(Vehiculo vuser){
-		Scanner sc = new Scanner(System.in);
-		int opt = 0;
-
-		ArrayList<Moto> motos = new ArrayList<Moto>(){{
-			add(new Moto("ZSAQ019",5));
-			add(new Moto("RMNX923",2));
-			add(new Moto("FKOD546",3));
-		}};
-
-		ArrayList<Coche> coches = new ArrayList<Coche>(){{
-			add(new Coche("DTYL741",3,3));
-			add(new Coche("DTYL741",2,5));
-			add(new Coche("DTYL741",4,2));
-		}};
-
-		return vuser;
+	public static void verFicha(Vehiculo vuser){
+		if(vuser instanceof Coche){
+			System.out.println(((Coche) vuser).verFicha());
+		} else {
+			System.out.println(((Moto) vuser).verFicha());
+		}
 	}
-
-	public static Vehiculo cambiar(Vehiculo vuser){
-		Scanner sc = new Scanner(System.in);
-		int opt = 0;
-
-		return vuser;
-	}	
 	
-	public static void menu(){
+	public static void menu() {
 		Scanner sc = new Scanner(System.in);
 		Vehiculo user = new Vehiculo();
 
 		int opt = 0;
+		int optv = 0;
 
 		do {
 
-			System.out.println("1.- Crear un nuevo vehículo");
-			System.out.println("2.- Escoger un vehiculo");
+			System.out.println("1.- Escoger un vehículo");
+			System.out.println("2.- Cambiar datos del vehículo");
 			System.out.println("3.- Ver ficha técnica del vehículo");
 			System.out.println("4.- Cambiar de vehículo");
-			System.out.println("5.- Salir");			
+			System.out.println("5.- Salir\n");			
 
 			System.out.print("Escoge una opción: ");
 			opt = sc.nextInt();
 
 			switch(opt){
 				case 1:
-					user = crear(user);
+					user = crear();
+					user.setConductor(CONDUCTOR);
+					
+					System.out.println("Se ha creado correctamente");
 
 					break;
 				case 2:
-					user = escoger(user);
+					//user
+
 					break;
 				case 3:
-					System.out.println(user.verFicha());
+					verFicha(user);
+					
 					break;
 				case 4:
-					user = cambiar(user);
+					//user = cambiar(user);
+					
 					break;
 				case 5:
 					System.out.println("Gracias por usar nuestro sistema");
 					break;
 				default:
+					System.out.println("Opción no válida.");
 					break;
 			}
+			
+			System.out.println("\n");
 
 		} while (opt != 5);
 

@@ -11,7 +11,6 @@ public class Vehiculo {
 		this.matricula = matricula;
 	}
 
-
 	public String getMatricula() {
 		return matricula;
 	}
@@ -33,7 +32,7 @@ public class Vehiculo {
 	}
 	
 	public String verFicha() {
-		return "Vehículo:\n" +
+		return "Datos del Vehículo:\n" +
 				"\tMatricula: " + this.matricula +
 				"\tConductor: " + this.conductor;
 	}
