@@ -1,25 +1,75 @@
  package trim02.vehiculo;
 
 import java.util.Scanner;
+//import java.util.ArrayList;
 
 public class VehiculoIO {
-	
-	private static final String MATRICULA_DEF = "0001AAA";
+
+	// 1.- Constantes con datos correctos por defectos al crear el vehículo
+	private static final String MATRICULA = "0001AAA";
 	private static final String CONDUCTOR = "Usuario1";
 	private static final int NUM_PUERTAS = 4;
 	private static final int FACTOR_COCHE = 3;
 	private static final int CILINDROS = 6;
-	
-	public static boolean validarMatricula(String matricula) {
-		return matricula.matches("[0-9]{4}[A-Za-z]{3}");
-	}
-	
-	public static boolean validarFactor(int factor) {
-		return factor >= 1 && factor <= 5;
-	}
-	
-	public static boolean validarPuertas(int puertas) {
-		return puertas >= 2 && puertas <= 5;
+
+	/* 2.- Métodos
+	 *
+	 * void menu()
+	 * 	 Saca por pantalla el menú con las opciones para:
+	 * 	 Crear, cambiar datos, ver la ficha técnica y el cálculo de la couta
+	 * 
+	 */ 
+	public static void menu() {
+		// Se instancia un Escaner para recoger datos por pantalla
+		Scanner sc = new Scanner(System.in);
+		// También un Vehículo que será el de usuario
+		Vehiculo user = new Vehiculo();
+
+		int opt = 0;
+
+		do {
+
+			// Se pregunta al usuario las siguientes opciones			
+			System.out.println("1.- Escoger un vehículo");
+			System.out.println("2.- Cambiar datos del vehículo");
+			System.out.println("3.- Ver ficha técnica del vehículo");
+			System.out.println("4.- Calcular la cuota del vehículo");
+			System.out.println("0.- Salir\n");			
+
+			System.out.print("Escoge una opción: ");
+			opt = sc.nextInt();
+
+			switch(opt){
+				case 1:
+					user = crear();
+
+					break;
+				case 2:
+					user = cambiarDatos(user);
+
+					break;
+				case 3:
+					verFicha(user);
+					
+					break;
+				case 4:				
+					calcularCuota(user);
+					
+					break;
+				case 0:
+					System.out.println("Gracias por usar nuestro sistema");
+
+					break;
+				default:
+					System.out.println("Opción no válida.");
+
+					break;
+			}
+			
+			System.out.println("\n");
+
+		} while (opt != 0);
+
 	}
 
 	public static Vehiculo crear() {
@@ -39,31 +89,15 @@ public class VehiculoIO {
 		} while(v != 1 && v != 2);
 
 		if(v == 1) {
-			escogido = new Coche(MATRICULA_DEF,NUM_PUERTAS,FACTOR_COCHE);
+			escogido = new Coche(MATRICULA, CONDUCTOR, NUM_PUERTAS, FACTOR_COCHE);
 		} else {
-			escogido = new Moto(MATRICULA_DEF,CILINDROS);
+			escogido = new Moto(MATRICULA, CONDUCTOR, CILINDROS);
 		}
+
+		System.out.println("Se ha creado correctamente");
 
 		return escogido;
 
-	}
-
-	public static void verFicha(Vehiculo vuser){
-
-		if(vuser instanceof Coche){
-			System.out.println(((Coche) vuser).verFicha());
-		} else {
-			System.out.println(((Moto) vuser).verFicha());
-		}
-
-	}
-	
-	public static void calcularCouta(Vehiculo vuser) {
-		if(vuser instanceof Coche){
-			System.out.println(((Coche) vuser).calcularCuota());
-		} else {
-			System.out.println(((Moto) vuser).calcularCuota());
-		}
 	}
 
 	public static Vehiculo cambiarDatos(Vehiculo vuser){
@@ -164,58 +198,69 @@ public class VehiculoIO {
 		return cambiado;
 
 	}
+
+	public static void verFicha(Vehiculo vuser){
+
+		if(vuser instanceof Coche){
+			System.out.println(((Coche) vuser).verFicha());
+		} else {
+			System.out.println(((Moto) vuser).verFicha());
+		}
+
+	}
 	
-	public static void menu() {
-		Scanner sc = new Scanner(System.in);
-		Vehiculo user = new Vehiculo();
+	public static void calcularCuota(Vehiculo vuser) {
+		if(vuser instanceof Coche){
+			System.out.println(((Coche) vuser).calcularCuota());
+		} else {
+			System.out.println(((Moto) vuser).calcularCuota());
+		}
+	}
 
-		int opt = 0;
+	/*public static Vehiculo cambiarVehiculo(Vehiculo vuser) {
+		Vehiculo nuevo = new Vehiculo();
 
-		do {
+		if(vuser instanceof Coche){
+			nuevo = new Moto(MATRICULA, CONDUCTOR, CILINDROS);
+		}
 
-			System.out.println("1.- Escoger un vehículo");
-			System.out.println("2.- Cambiar datos del vehículo");
-			System.out.println("3.- Ver ficha técnica del vehículo");
-			System.out.println("4.- Calcular la cuota del vehículo");
-			System.out.println("0.- Salir\n");			
+		if(vuser instanceof Moto){
+			nuevo =  new Coche(MATRICULA, CONDUCTOR, NUM_PUERTAS, FACTOR_COCHE);
+		}
 
-			System.out.print("Escoge una opción: ");
-			opt = sc.nextInt();
+		return nuevo;
+	}
 
-			switch(opt){
-				case 1:
-					user = crear();
-					user.setConductor(CONDUCTOR);
-					
-					System.out.println("Se ha creado correctamente");
+	
+	 * public static Vehiculo selectVehiculo(){ Vehiculo selected = new Vehiculo();
+	 * 
+	 * 
+	 * ArrayList<Coche> listaCoche = new ArrayList<Coche>(){{ add(new
+	 * Coche("7502SWE",4,5)); add(new Coche("9730ZXP",2,4)); add(new
+	 * Coche("5831KTE",3,3)); }};
+	 * 
+	 * ArrayList<Moto> listaMoto = new ArrayList<Moto>(){{ add(new
+	 * Moto("1266FER",125)); add(new Moto("4201AUJ",900)); add(new
+	 * Moto("3561JSP",650)); }};
+	 * 
+	 * do {} while
+	 * 
+	 * selected.setConductor(CONDUCTOR);
+	 * 
+	 * return selected; }
+	 */
 
-					break;
-				case 2:
-					user = cambiarDatos(user);
-
-					break;
-				case 3:
-					verFicha(user);
-					
-					break;
-				case 4:				
-					calcularCouta(user);
-					
-					break;
-				case 0:
-					System.out.println("Gracias por usar nuestro sistema");
-
-					break;
-				default:
-					System.out.println("Opción no válida.");
-
-					break;
-			}
-			
-			System.out.println("\n");
-
-		} while (opt != 0);
-
+	// 3.- Métodos validadores
+	public static boolean validarMatricula(String matricula) {
+		return matricula.matches("[0-9]{4}[A-Z]{3}");
+	}
+	
+	public static boolean validarFactor(int factor) {
+		return factor >= 1 && factor <= 5;
+	}
+	
+	public static boolean validarPuertas(int puertas) {
+		return puertas >= 2 && puertas <= 5;
 	}
 	
 }

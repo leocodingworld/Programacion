@@ -7,10 +7,16 @@ public class Moto extends Vehiculo {
 	
 	public Moto() {}
 	
-	public Moto(String matricula, int cilidrada) {
+	public Moto(String matricula, int cilindrada) {
 		super(matricula);
-		this.cilindrada = cilidrada;
-		this.factorPot = setFactorPot(cilidrada);
+		this.cilindrada = cilindrada;
+		this.factorPot = setFactorPot(cilindrada);
+	}
+
+	public Moto(String matricula, String conductor, int cilindrada) {
+		super(matricula, conductor);
+		this.cilindrada = cilindrada;
+		this.factorPot = setFactorPot(cilindrada);
 	}
 
 	public int getCilidrada() {

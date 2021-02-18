@@ -11,6 +11,11 @@ public class Vehiculo {
 		this.matricula = matricula;
 	}
 
+	public Vehiculo(String matricula, String conductor) {
+		this.matricula = matricula;
+		this.conductor = conductor;
+	}
+
 	public String getMatricula() {
 		return matricula;
 	}
