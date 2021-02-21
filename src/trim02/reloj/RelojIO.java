@@ -10,7 +10,7 @@ public class RelojIO {
 
 	public static void menu() {
 		Scanner sc = new Scanner(System.in);
-		Reloj r1 = new Reloj(12);
+		Reloj r1 = new Reloj();
 		
 
 		String opt = "";

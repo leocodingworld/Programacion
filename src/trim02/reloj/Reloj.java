@@ -14,16 +14,18 @@ public class Reloj {
 	private static final String PM = "p.m.";
 
 	public Reloj() {
-		this.formato = FORMATO_DEFECTO;
-	}
-
-	public Reloj(int horas) {
-		this();
-		this.horas = horas;
+		this.horas = 0;
 		this.minutos = 0;
 		this.segundos = 0;
-		this.milisegundos = 0;	
-		this.meridiano = PM;	
+		this.milisegundos = 0;
+		this.formato = FORMATO_DEFECTO;
+		this.meridiano = AM;
+	}
+	
+	public Reloj(int horas) {
+		this();
+		this.horas = horas;			
+		this.meridiano = (horas < 12 && horas >= 0) ? AM:PM;	
 	}
 
 	public Reloj(int horas, int minutos) {
@@ -83,7 +85,6 @@ public class Reloj {
 		}
 	}
 
-
 	public void sumarHoras(int horas) {
 		int total = this.horas + horas;
 
@@ -93,8 +94,6 @@ public class Reloj {
 				if(total >= 24){
 					total -= 24;
 				}
-				
-				this.meridiano = (total >= 0 && total < 12) ? AM:PM;
 				
 				break;
 			case "12h":
@@ -112,17 +111,13 @@ public class Reloj {
 
 				} 
 				
-				if (total == 12){
-					this.meridiano = (this.meridiano.equals(PM)) ? AM:PM;
-				}
-				
 				break;
 		} 
 		
 		this.horas = total;
 	
 	}
-
+	
 	public void sumarMinutos(int minutos) {
 		int total = this.minutos + minutos;
 		int restante = total % 60;
