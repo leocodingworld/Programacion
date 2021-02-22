@@ -71,9 +71,12 @@ public class VehiculoIO {
 		} while (opt != 0);
 
 	}
+	
+	/*
+	 * Se crea un nuevo vehículo segun lo que pida el usuario
+	 */
 
 	public static Vehiculo crear() {
-
 		Scanner sc = new Scanner(System.in);
 		Vehiculo escogido = new Vehiculo();
 		int v = 0;
@@ -100,6 +103,11 @@ public class VehiculoIO {
 
 	}
 
+	/*
+	 * Para cambiar los datos del vehículo,
+	 * se revisar que tipo de vehiculo se instanciado primero
+	 */
+	
 	public static Vehiculo cambiarDatos(Vehiculo vuser){
 
 		Scanner sc = new Scanner(System.in);
@@ -217,39 +225,7 @@ public class VehiculoIO {
 		}
 	}
 
-	/*public static Vehiculo cambiarVehiculo(Vehiculo vuser) {
-		Vehiculo nuevo = new Vehiculo();
-
-		if(vuser instanceof Coche){
-			nuevo = new Moto(MATRICULA, CONDUCTOR, CILINDROS);
-		}
-
-		if(vuser instanceof Moto){
-			nuevo =  new Coche(MATRICULA, CONDUCTOR, NUM_PUERTAS, FACTOR_COCHE);
-		}
-
-		return nuevo;
-	}
-
 	
-	 * public static Vehiculo selectVehiculo(){ Vehiculo selected = new Vehiculo();
-	 * 
-	 * 
-	 * ArrayList<Coche> listaCoche = new ArrayList<Coche>(){{ add(new
-	 * Coche("7502SWE",4,5)); add(new Coche("9730ZXP",2,4)); add(new
-	 * Coche("5831KTE",3,3)); }};
-	 * 
-	 * ArrayList<Moto> listaMoto = new ArrayList<Moto>(){{ add(new
-	 * Moto("1266FER",125)); add(new Moto("4201AUJ",900)); add(new
-	 * Moto("3561JSP",650)); }};
-	 * 
-	 * do {} while
-	 * 
-	 * selected.setConductor(CONDUCTOR);
-	 * 
-	 * return selected; }
-	 */
-
 	// 3.- Métodos validadores
 	public static boolean validarMatricula(String matricula) {
 		return matricula.matches("[0-9]{4}[A-Z]{3}");
