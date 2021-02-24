@@ -19,7 +19,7 @@ public class Reloj {
 		this.segundos = 0;
 		this.milisegundos = 0;
 		this.formato = FORMATO_DEFECTO;
-		this.meridiano = AM;
+		this.meridiano = PM;
 	}
 	
 	public Reloj(int horas) {
@@ -76,9 +76,16 @@ public class Reloj {
 	public void setFormato(String formato) {
 		this.formato = formato;
 		
-		if(this.formato.equals("12h") && this.horas > 12){
-			this.horas -= 12;
-		}
+		if(this.formato.equals("12h")){
+			if(this.horas > 12) {
+				this.horas -= 12;
+			}
+			
+			if(this.horas == 0) {
+				this.horas = 12;
+			}
+			
+		} 
 		
 		if(this.formato.equals("24h") && this.meridiano.equals(PM)){
 			this.horas += 12;
@@ -87,35 +94,47 @@ public class Reloj {
 
 	public void sumarHoras(int horas) {
 		int total = this.horas + horas;
+		int limite = 0;
 
 		switch(this.formato){
 			case "24h":
+				limite = 24;
 
-				if(total >= 24){
-					total -= 24;
-				}
-				
 				break;
 			case "12h":
+				limite = 12;
 
-				if(total > 12){
-
-					for(int i = 1; total > 12; i++){
-						total -= 12;
-
-						if(total <= 12 && i % 2 != 0){
-							this.meridiano = (this.meridiano.equals(PM)) ? AM:PM;
-						}
-
-					}
-
-				} 
+				if(this.meridiano.equals(AM))
 				
 				break;
-		} 
-		
+		}		
+
+		for(int i = 1; total >= limite; i++){
+			total -= limite;
+
+			if(total <= limite){
+				switch(limite){
+					case 12:
+						if(i % 2 != 0){
+							this.meridiano = (this.meridiano.equals(PM)) ? AM:PM;
+						}
+						
+						if(total == 0) {
+							total = 12;
+						}
+
+						break;
+					case 24:
+						this.meridiano = (total >= 0 && total < 12) ? AM:PM;
+						
+						break;
+				}
+			
+			}
+
+		}
+
 		this.horas = total;
-	
 	}
 	
 	public void sumarMinutos(int minutos) {
