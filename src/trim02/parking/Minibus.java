@@ -9,6 +9,11 @@ public class Minibus extends Vehiculo {
 	}
 
 	@Override
+	public String toString() {
+		return super.toString() + "Nº Plazas: " + plazas;
+	}
+
+	@Override
 	public float calcularTarifa() {
 		return super.calcularTarifa() + (15 * this.plazas);
 	}
