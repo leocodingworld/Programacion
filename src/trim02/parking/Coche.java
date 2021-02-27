@@ -30,7 +30,7 @@ public class Coche extends Vehiculo {
 	}
 
 	@Override
-	public float calcularTarifa() {
+	public int calcularTarifa() {
 		int incremento = 0;
 		
 		if(this.longitud >= 2.5f && this.longitud < 3.5f) {

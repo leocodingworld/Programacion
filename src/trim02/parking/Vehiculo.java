@@ -6,13 +6,12 @@ public abstract class Vehiculo implements Tarifable {
 	private String matricula;
 	
 	public Vehiculo(String matricula) {
-		super();
 		this.matricula = matricula;
 	}
 
 	public Vehiculo(Conductor conductor, String matricula) {
+		this(matricula);
 		this.conductor = conductor;
-		this.matricula = matricula;
 	}
 
 	public Conductor getConductor() {
@@ -31,9 +30,8 @@ public abstract class Vehiculo implements Tarifable {
 		this.matricula = matricula;
 	}
 	
-	@Override
-	public float calcularTarifa() {
-		return 75.0f;
+	public int calcularTarifa() {
+		return 75;
 	}
 	
 	@Override
