@@ -39,6 +39,10 @@ public abstract class Vehiculo implements Tarifable {
 		Vehiculo otro = (Vehiculo) obj;
 		return this.matricula.equals(otro.matricula);
 	}
+	
+	public String mostrarVehiculo() {
+		return this.toString();
+	}
 
 	@Override
 	public String toString() {

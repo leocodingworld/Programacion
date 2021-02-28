@@ -21,6 +21,10 @@ public class Coche extends Vehiculo {
 	public void setLongitud(float longitud) {
 		this.longitud = longitud;
 	}
+	
+	public String mostrarVehiculo() {
+		return this.toString();
+	}
 
 	@Override
 	public String toString() {

@@ -13,6 +13,10 @@ public class Minibus extends Vehiculo {
 		this.plazas = plazas;
 	}
 	
+	public String mostrarVehiculo() {
+		return this.toString();
+	}
+	
 	@Override
 	public String toString() {
 		return super.toString() + "Nº Plazas: " + plazas;

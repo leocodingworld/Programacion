@@ -48,6 +48,20 @@ public class ParkingIO {
 		} while(!opt.equals("0"));
 	}
 	
+	public static void listar(HashMap<String,ArrayList<Vehiculo>> listado) {
+		for (String vs : listado.keySet()) {
+			for(Vehiculo v : listado.get(vs)) {
+				if(v instanceof Coche) {
+					((Coche) v).mostrarVehiculo();
+				}
+				
+				if(v instanceof Minibus) {
+					((Minibus) v).mostrarVehiculo();
+				}
+			}
+		}
+	}
+	
 	public static boolean validarTelefono(String telefono) {
 		return telefono.matches("[679][0-9]{8}");
 	}
