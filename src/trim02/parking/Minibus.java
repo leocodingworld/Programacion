@@ -19,7 +19,8 @@ public class Minibus extends Vehiculo {
 	
 	@Override
 	public String toString() {
-		return super.toString() + "Nº Plazas: " + plazas;
+		return super.toString() + "\tNº Plazas: " + plazas
+				+ "\n\tTarifa: " + this.calcularTarifa();
 	}
 
 	@Override

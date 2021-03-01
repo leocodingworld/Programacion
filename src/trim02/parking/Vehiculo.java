@@ -47,8 +47,8 @@ public abstract class Vehiculo implements Tarifable {
 	@Override
 	public String toString() {
 		return "Datos del vehículo:\n" + 
-				"\tConductor:" + conductor.getNombre() +
-				"\tMatricula=" + matricula + "\n";
+				"\tConductor: " + conductor.getNombre() +
+				"\n\tMatricula: " + matricula + "\n";
 	}
 
 }

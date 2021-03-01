@@ -1,21 +1,25 @@
 package trim02.parking;
 
 import java.util.Scanner;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 @SuppressWarnings("serial")
 public class ParkingIO {	
 	
+	private static final Conductor CONDUCTOR = new Conductor("Pepito","Perez","942456789");
+	
 	public static void menu() {
 		Scanner sc = new Scanner(System.in);		
 		Conductor user = crearConductor();
 
-		ArrayList<Vehiculo> coches = new ArrayList<Vehiculo>() {{}};
-		ArrayList<Vehiculo> minibuses = new ArrayList<Vehiculo>() {{}};
-		HashMap<String,ArrayList<Vehiculo>> listado = new HashMap<String,ArrayList<Vehiculo>>() {{
-			put("coches",coches);
-			put("minibuses",minibuses);
+		HashMap<String,Vehiculo> vehiculos = new HashMap<String,Vehiculo>() {{
+			put("Ford", new Coche(CONDUCTOR, "1038SOP", 2.7f));
+			put("Seat", new Coche(CONDUCTOR, "0254UWU", 3.0f));
+			put("Volkswagen", new Coche(CONDUCTOR,"6669OWO", 5.5f));
+			
+			put("Clásico", new Minibus(CONDUCTOR,"8354SDK",10));
+			put("Urbano", new Minibus(CONDUCTOR,"0173XCS",15));
+			put("Extendido", new Minibus(CONDUCTOR,"6503ASD",25));
 		}};
 		
 		String opt = "";
@@ -29,11 +33,14 @@ public class ParkingIO {
 			System.out.print("\nElige una opción:");
 			opt = sc.nextLine();
 			
+			System.out.println();
+			
 			switch(opt) {
 				case "1":
 					
 					break;
 				case "2":
+					listarVehiculos(vehiculos);
 					break;
 				case "3":
 					break;
@@ -48,17 +55,22 @@ public class ParkingIO {
 		} while(!opt.equals("0"));
 	}
 	
-	public static void listar(HashMap<String,ArrayList<Vehiculo>> listado) {
-		for (String vs : listado.keySet()) {
-			for(Vehiculo v : listado.get(vs)) {
-				if(v instanceof Coche) {
-					((Coche) v).mostrarVehiculo();
-				}
-				
-				if(v instanceof Minibus) {
-					((Minibus) v).mostrarVehiculo();
-				}
+	public static void listarVehiculos(HashMap<String,Vehiculo> lista) {
+		String vs;
+
+		for(String v : lista.keySet()) {
+			vs = "Modelo: " + v + "\n";
+
+			if(lista.get(v) instanceof Coche) {
+				vs += ((Coche) lista.get(v)).mostrarVehiculo();
 			}
+
+			if(lista.get(v) instanceof Minibus) {
+				vs += ((Minibus) lista.get(v)).mostrarVehiculo();
+			}
+
+			System.out.println(vs+ "\n");
+
 		}
 	}
 	
