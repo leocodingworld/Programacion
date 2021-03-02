@@ -13,6 +13,15 @@ public class Minibus extends Vehiculo {
 		this.plazas = plazas;
 	}
 	
+	public int getPlazas() {
+		return plazas;
+	}
+
+	public void setPlazas(int plazas) {
+		this.plazas = plazas;
+	}
+
+	@Override
 	public String mostrarVehiculo() {
 		return this.toString();
 	}
