@@ -9,8 +9,7 @@ public class ParkingIO {
 	private static final Conductor CONDUCTOR = new Conductor("Pepito","Perez","942456789");
 	
 	public static void menu() {
-		Scanner sc = new Scanner(System.in);		
-		Conductor user = crearConductor();
+		Scanner sc = new Scanner(System.in);
 
 		HashMap<String,Vehiculo> vehiculos = new HashMap<String,Vehiculo>() {{
 			put("Ford", new Coche(CONDUCTOR, "1038SOP", 2.7f));
@@ -41,6 +40,7 @@ public class ParkingIO {
 					break;
 				case "2":
 					listarVehiculos(vehiculos);
+					
 					break;
 				case "3":
 					break;
@@ -88,15 +88,6 @@ public class ParkingIO {
 	
 	public static boolean validarPuertas(int puertas) {
 		return puertas >= 5 && puertas <= 25;
-	}
-	
-	public static Conductor crearConductor() {
-		Scanner sc = new Scanner(System.in);
-		Conductor nuevo = new Conductor();
-		
-		System.out.println("Para usar el sistema, debe introducir sus datos como conductor.");
-		
-		return nuevo;
 	}	
 	
 }
