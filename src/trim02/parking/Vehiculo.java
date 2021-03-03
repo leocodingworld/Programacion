@@ -4,6 +4,8 @@ public abstract class Vehiculo implements Tarifable {
 	
 	private Conductor conductor;
 	private String matricula;
+
+	public Vehiculo() {}
 	
 	public Vehiculo(String matricula) {
 		this.matricula = matricula;
@@ -46,9 +48,12 @@ public abstract class Vehiculo implements Tarifable {
 
 	@Override
 	public String toString() {
+		String c = (this.conductor == null) ? "No Asignado":conductor.getNombre();
+		
 		return "Datos del vehículo:\n" + 
-				"\tConductor: " + conductor.getNombre() +
+				"\tConductor: " + c +
 				"\n\tMatricula: " + matricula + "\n";
 	}
 
 }
+

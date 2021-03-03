@@ -1,8 +1,9 @@
 package trim02.parking;
 
-public class Coche extends Vehiculo {
-	
+public class Coche extends Vehiculo {	
 	private float longitud;
+
+	public Coche() {}
 	
 	public Coche (String matricula, float longitud) {
 		super(matricula);
@@ -39,7 +40,7 @@ public class Coche extends Vehiculo {
 		
 		if(this.longitud >= 2.5f && this.longitud < 3.5f) {
 			incremento = 50;
-		} else if (this.longitud >= 3.5f && this.longitud <= 4.75f ) {
+		} else if (this.longitud >= 3.5f && this.longitud <= 4.75f) {
 			incremento = 75;
 		} else {
 			incremento = 100;

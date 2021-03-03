@@ -2,6 +2,8 @@ package trim02.parking;
 
 public class Minibus extends Vehiculo {
 	private int plazas;
+
+	public Minibus() {}
 	
 	public Minibus(String matricula, int plazas) {
 		super(matricula);
