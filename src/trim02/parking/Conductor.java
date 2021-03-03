@@ -44,7 +44,9 @@ public class Conductor {
 	}
 
 	private String generarCodigo(String nombre, String apellidos, String telefono) {		
-		return nombre.substring(0,4).toUpperCase() + "-" + telefono.substring(2,6);
+		return nombre.substring(0,3).toUpperCase() + "-" + 
+				telefono.substring(2,6) + "-" +
+				apellidos.substring(apellidos.length() - 3);
 	}
 	
 }

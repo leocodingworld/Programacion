@@ -10,13 +10,13 @@ public class ParkingIO {
 		Scanner sc = new Scanner(System.in);
 
 		ArrayList<Vehiculo> vehiculos = new ArrayList<Vehiculo>() {{
-			add(new Coche("1038-SOP", 2.7f));
-			add(new Coche("0254-UWU", 3.0f));
-			add(new Coche("6669-OWO", 5.5f));
+			add(new Coche("1038-STP", 2.7f));
+			add(new Coche("0254-YWY", 3.0f));
+			add(new Coche("6669-LXZ", 5.5f));
 			
 			add(new Minibus("8354-SDK", 10));
 			add(new Minibus("0173-XCS", 15));
-			add(new Minibus("6503-ASD", 25));
+			add(new Minibus("6503-RSD", 25));
 		}};
 		
 		String opt = "";
