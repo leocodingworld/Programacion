@@ -62,6 +62,7 @@ public class ParkingIO {
 	}
 	
 	public static Conductor crearConductor() {
+		
 		Scanner sc = new Scanner(System.in);
 		Conductor nuevo ;
 				
