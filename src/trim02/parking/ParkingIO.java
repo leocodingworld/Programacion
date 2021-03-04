@@ -8,15 +8,16 @@ public class ParkingIO {
 	
 	public static void menu() {
 		Scanner sc = new Scanner(System.in);
+		final Conductor user = crearConductor();
 
 		ArrayList<Vehiculo> vehiculos = new ArrayList<Vehiculo>() {{
-			add(new Coche("1038-STP", 2.7f));
-			add(new Coche("0254-YWY", 3.0f));
-			add(new Coche("6669-LXZ", 5.5f));
+			add(new Coche(new Conductor("Maria","Garcia","789456123"),"1038-STP", 2.7f));
+			add(new Coche(new Conductor("German","Palomares","91475324"),"0254-YWY", 3.0f));
+			add(new Coche(new Conductor("Jean Paul","Delacroix","987341054"),"6669-LXZ", 5.5f));
 			
-			add(new Minibus("8354-SDK", 10));
-			add(new Minibus("0173-XCS", 15));
-			add(new Minibus("6503-RSD", 25));
+			add(new Minibus(new Conductor("Fulanita","Menganita","748521023"),"8354-SDK", 10));
+			add(new Minibus(new Conductor("Francisco","Peres","911582493"),"0173-XCS", 15));
+			add(new Minibus(new Conductor("Magdalena","de la Rosa","680314751"),"6503-RSD", 25));
 		}};
 		
 		String opt = "";
@@ -27,14 +28,14 @@ public class ParkingIO {
 			System.out.println("3.- Eliminar vehiculo");
 			System.out.println("0.- Salir");
 			
-			System.out.print("\nElige una opción:");
+			System.out.print("\nElige una opción: ");
 			opt = sc.nextLine();
 			
 			System.out.println();
 			
 			switch(opt) {
 				case "1":
-					addVehiculo(vehiculos);
+					addVehiculo(vehiculos,user);
 					
 					break;
 				case "2":
@@ -42,7 +43,7 @@ public class ParkingIO {
 					
 					break;
 				case "3":
-					elimnarVehiculo(vehiculos);
+					eliminarVehiculo(vehiculos);
 
 					break;
 				case "0":
@@ -59,8 +60,41 @@ public class ParkingIO {
 			
 		} while(!opt.equals("0"));
 	}
+	
+	public static Conductor crearConductor() {
+		Scanner sc = new Scanner(System.in);
+		Conductor nuevo ;
+				
+		String nombre = "";
+		String apellidos = "";
+		String telefono = "";
+		
+		System.out.println("Para usar el sistema, debe registrarse antes.");
+		
+		System.out.print("Introduce tu nombre: ");
+		nombre = sc.nextLine();
+		
+		System.out.print("Introduce tus apellidos: ");
+		apellidos = sc.nextLine();
+		
+		do {
+			System.out.print("Introduce tu número de telefono sin espacios (Válido móvil (6- o 7-) o Fijo (9-)):");
+			telefono = sc.next();
+			
+			if(!validarTelefono(telefono)) {
+				System.out.println("Formato no válido");
+			}
+			
+		} while(!validarTelefono(telefono));
+		
+		System.out.println("Se ha registrado con éxito\n\n");
+		
+		nuevo = new Conductor(nombre, apellidos, telefono);
+		
+		return nuevo;
+	}
 
-	public static void addVehiculo(ArrayList<Vehiculo> lista) {
+	public static void addVehiculo(ArrayList<Vehiculo> lista, Conductor user) {
 		Scanner sc = new Scanner(System.in);
 		Vehiculo nuevo = new Coche();
 
@@ -73,13 +107,13 @@ public class ParkingIO {
 			vopt = sc.next();
 			
 			if(!vopt.matches("[12]")) {
-				System.out.println("Formato inválido");
+				System.out.println("Opción inválida");
 			}			
 			
 		} while(!vopt.matches("[12]"));
 
 		do {
-			System.out.print("Introduzca una matricula: ");
+			System.out.print("Introduzca una matricula (Ejemplo: 1111-BBB): ");
 			matricula = sc.next();
 			
 			if(!validarMatricula(matricula)) {
@@ -91,30 +125,30 @@ public class ParkingIO {
 		switch(vopt){
 			case "1":
 				do {
-					System.out.print("Introduzca la longitud deseada (se permiten decimales): ");
-					dato = sc.next();
+					System.out.print("Introduzca la longitud deseada (se permiten decimales, disponible entre 2,5 y 6): ");
+					dato = sc.next().replace(",",".");
 					
 					if(!validarLongitud(Float.parseFloat(dato))) {
-						System.out.println("Formato inválido");
+						System.out.println("Fuera de los límites.");
 					}			
 					
 				} while(!validarLongitud(Float.parseFloat(dato)));				
 
-				nuevo = new Coche(matricula, Float.parseFloat(dato));
+				nuevo = new Coche(user, matricula, Float.parseFloat(dato));
 				
 				break;
 			case "2":
 				do {
-					System.out.print("Introduzca la longitud deseada (se permiten decimales): ");
-					dato = sc.next();
+					System.out.print("Introduzca el número de plazas (Disponible entre 5 y 25): ");
+					dato = sc.next().replaceAll("[.,]", "");
 					
 					if(!validarPlazas(Integer.parseInt(dato))) {
-						System.out.println("Formato inválido");
+						System.out.println("Fuera de los límites o formato de número inválido");
 					}			
 					
 				} while(!validarPlazas(Integer.parseInt(dato)));	
 
-				nuevo = new Minibus(matricula,Integer.parseInt(dato));
+				nuevo = new Minibus(user,matricula,Integer.parseInt(dato));
 				break;
 		}
 
@@ -130,7 +164,7 @@ public class ParkingIO {
 		}
 	}
 
-	public static void elimnarVehiculo(ArrayList<Vehiculo> lista) {
+	public static void eliminarVehiculo(ArrayList<Vehiculo> lista) {
 		Scanner sc = new Scanner(System.in);
 		Vehiculo eliminado = new Minibus();
 		String dato;
@@ -142,7 +176,7 @@ public class ParkingIO {
 		}
 
 		do {
-			System.out.print("Indica qué vehículo quieres eliminar: ");
+			System.out.print("Indica la matricula del vehículo quieres eliminar: ");
 			
 			dato = sc.next();
 			eliminado.setMatricula(dato);

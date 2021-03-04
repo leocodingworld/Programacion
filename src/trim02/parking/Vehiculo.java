@@ -1,5 +1,6 @@
 package trim02.parking;
 
+
 public abstract class Vehiculo implements Tarifable {
 	
 	private Conductor conductor;
