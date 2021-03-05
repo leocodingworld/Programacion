@@ -49,7 +49,11 @@ public abstract class Vehiculo implements Tarifable {
 
 	@Override
 	public String toString() {
-		String c = (this.conductor == null) ? "No Asignado":conductor.getNombre();
+		String c = "No Asignado";
+		
+		if(this.conductor != null) {
+			c = conductor.mostrarConductor();
+		}
 		
 		return "Datos del vehículo:\n" + 
 				"\tConductor: " + c +

@@ -42,11 +42,48 @@ public class Conductor {
 	public String getCodConductor() {
 		return codConductor;
 	}
+	
+	public String mostrarConductor(){
+		return this.toString();
+	}
 
-	private String generarCodigo(String nombre, String apellidos, String telefono) {		
-		return nombre.substring(0,3).toUpperCase() + "-" + 
+	@Override
+	public String toString() {
+		return "Conductor:\n" +
+			"\t\tNombre: " + nombre + "\n" +
+			"\t\tApellidos: " + apellidos + "\n" +
+			"\t\tTeléfono: " + telefono + "\n";
+	}
+
+	private String generarCodigo(String nombre, String apellidos, String telefono) {
+		String n = nombre;
+		String a = apellidos;
+		
+		switch(n.length()){
+			case 1:
+				n += "XX";
+
+				break;
+			case 2:
+				n += "X";
+
+				break;
+		}
+
+		switch(a.length()){
+			case 1:
+				a += "XX";
+
+				break;
+			case 2:
+				a += "X";
+
+				break;
+		}
+		
+		return n.substring(0,2).toUpperCase() + "-" + 
 				telefono.substring(2,6) + "-" +
-				apellidos.substring(apellidos.length() - 3);
+				a.substring(a.length() - 3).toUpperCase();
 	}
 	
 }

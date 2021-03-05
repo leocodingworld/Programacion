@@ -30,8 +30,8 @@ public class Coche extends Vehiculo {
 	@Override
 	public String toString() {
 		return super.toString() + 
-				"\tLongitud: " + longitud + 
-				"\tTarifa:" + this.calcularTarifa();
+				"\tLongitud: " + longitud  +
+				"\n\tTarifa: " + this.calcularTarifa() + "€";
 	}
 
 	@Override
