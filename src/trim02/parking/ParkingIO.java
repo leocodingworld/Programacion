@@ -72,10 +72,10 @@ public class ParkingIO {
 		System.out.println("Para usar el sistema, debe registrarse antes.");
 		
 		System.out.print("Introduce tu nombre: ");
-		nombre = sc.next();
+		nombre = sc.nextLine();
 		
 		System.out.print("Introduce tus apellidos: ");
-		apellidos = sc.next();
+		apellidos = sc.nextLine();
 		
 		do {
 			System.out.print("Introduce tu número de teléfono sin espacios (Válido móvil (6- o 7-) o Fijo (9-)):");
