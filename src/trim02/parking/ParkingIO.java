@@ -143,7 +143,7 @@ public class ParkingIO {
 
 	public static void eliminarVehiculo(ArrayList<Vehiculo> lista) {
 		Scanner sc = new Scanner(System.in);
-		Vehiculo eliminado = new Minibus();
+		Vehiculo eliminado = new Coche();
 		String dato;
 
 		System.out.println("Estos son los vehículos actuales:");
@@ -195,17 +195,18 @@ public class ParkingIO {
 			System.out.print("Introduzca la longitud deseada (se permiten decimales, disponible entre 2,5 y 6): ");
 			dato = sc.next().replace(",",".");
 			
-			if(dato.matches("([0-9]|[0-9]{1,}[.][0-9]{1,})")) {
-				valido = Float.parseFloat(dato); 
+			if(dato.matches("([0-9]{1,}|[0-9]{1,}[.][0-9]{1,})")) {
+				valido = Float.parseFloat(dato); //6.0
 			}
-
+			
 			if(!validarLongitud(valido)) {
 				System.out.println("Fuera de los límites o número invalido.");
-			}			
+			}
 
 		} while(!validarLongitud(valido));
 		
 		return valido;
+		
 	}
 	
 	public static int darPlazasValidas() {
@@ -231,7 +232,7 @@ public class ParkingIO {
 	}
 			
 	public static boolean validarTelefono(String telefono) {
-		return telefono.matches("[679][0-9]{8}");
+		return telefono.matches("[679][0-9]{8}"); // (6|7|9)[0-9]{8}
 	}
 	
 	public static boolean validarMatricula(String matricula) {

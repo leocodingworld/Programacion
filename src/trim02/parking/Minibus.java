@@ -2,19 +2,21 @@ package trim02.parking;
 
 public class Minibus extends Vehiculo {
 	private int plazas;
-
-	public Minibus() {}
 	
-	public Minibus(String matricula, int plazas) {
-		super(matricula);
-		this.plazas = plazas;
+	public Minibus() {
+		super();
 	}
-	
+
 	public Minibus(Conductor conductor, String matricula, int plazas) {
 		super(conductor, matricula);
 		this.plazas = plazas;
 	}
-	
+
+	public Minibus(String matricula, int plazas) {
+		super(matricula);
+		this.plazas = plazas;
+	}
+
 	public int getPlazas() {
 		return plazas;
 	}
