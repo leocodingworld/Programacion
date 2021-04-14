@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Principal {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) {//a
 		Scanner sc = new Scanner(System.in);
 		HashMap<String, Alumno> alumnos = new HashMap<>();
         
