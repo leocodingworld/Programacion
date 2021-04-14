@@ -12,13 +12,13 @@ public class Principal {
 		String opt;
 		
 		do {
-			System.out.println("1.- AÃ±adir nuevo Alumno");
+			System.out.println("1.- Añadir nuevo Alumno");
 			System.out.println("2.- Visualizar listado");
 			System.out.println("3.- Elimnar alumno");
 			System.out.println("4.- Calcular Ingresos");
 			System.out.println("0.- Salir");
 			
-			System.out.print("Escoge una opciÃ³n: ");
+			System.out.print("Escoge una opción: ");
 			opt = sc.next();
 			
 			switch(opt){
@@ -224,8 +224,8 @@ public class Principal {
 			}
 		}
 		
-		System.out.println("Ingresos por los estudiantes: " + totalEstudiantes + "â‚¬");
-		System.out.println("Ingresos por los Doctorando: " + totalDoctorando + "â‚¬");
-		System.out.println("Ingresos por todos los matriculados: " + (totalEstudiantes + totalDoctorando)+ "â‚¬");
+		System.out.println("Ingresos por los estudiantes: " + totalEstudiantes + "€");
+		System.out.println("Ingresos por los Doctorando: " + totalDoctorando + "€");
+		System.out.println("Ingresos por todos los matriculados: " + (totalEstudiantes + totalDoctorando)+ "€");
 	}
 }
