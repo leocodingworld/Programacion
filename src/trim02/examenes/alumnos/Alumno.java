@@ -10,28 +10,28 @@ public abstract class Alumno implements Tasable {
     }
 
     public Alumno(String codigoAlumno) {
-            this.codigoAlumno = codigoAlumno;
+        this.codigoAlumno = codigoAlumno;
     }
 
     public Alumno(Identidad identidad, String codigoAlumno) {
-            this.identidad = identidad;
-            this.codigoAlumno = codigoAlumno;
+        this.identidad = identidad;
+        this.codigoAlumno = codigoAlumno;
     }
 
     public Identidad getIdentidad() {
-            return identidad;
+        return identidad;
     }
 
     public void setIdentidad(Identidad identidad) {
-            this.identidad = identidad;
+        this.identidad = identidad;
     }
 
     public String getCodigoAlumno() {
-            return codigoAlumno;
+        return codigoAlumno;
     }
 
     public void setCodigoAlumno(String codigoAlumno) {
-            this.codigoAlumno = codigoAlumno;
+    	this.codigoAlumno = codigoAlumno;
     }
 
 	public static boolean validarCodigo(String codigo) { 

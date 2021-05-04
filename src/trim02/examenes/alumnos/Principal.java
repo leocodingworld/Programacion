@@ -212,7 +212,7 @@ public class Principal {
 		int totalDoctorando = 0;
 		int t;
 
-		for(Alumno a : lista.values()) {
+		for(Tasable a : lista.values()) {
 			t = a.calcularTasas();
 			
 			if(a instanceof Estudiante) {
