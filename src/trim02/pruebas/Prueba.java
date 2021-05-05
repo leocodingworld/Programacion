@@ -27,9 +27,12 @@ public class Prueba {
 		int num = 0;
 		
 		if(primos.size() != 0) {
-			num = primos.size() - 1;
+			num = primos.get(primos.size() - 1);
+			primos.forEach(x -> System.out.println(x));
 		}
-			
+		
+		System.out.println("--------------------------");
+		
 		while (primos.size() < limite) {
 			
 			switch(num) {
@@ -78,9 +81,7 @@ public class Prueba {
 			Scanner fsc = new Scanner(fprimos);
 			
 			while(fsc.hasNextLine()) {
-				if(!(p = fsc.nextLine()).matches("[23]")) {
-					primos.add(Integer.parseInt(p));
-				}
+				primos.add(Integer.parseInt(fsc.nextLine()));
 			}
 		} catch (IOException ioe) {
 			escribirLog(ioe.getMessage());
