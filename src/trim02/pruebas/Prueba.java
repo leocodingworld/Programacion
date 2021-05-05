@@ -6,20 +6,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-@SuppressWarnings("serial")
 public class Prueba {
 	
 	private static final String FICHERO_USER = "primos.txt";
-	private static final String ERRLOG = "error.log";
+	private static final String ERRLOG = "error.txt";
 		 	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		ArrayList<Integer> primos = new ArrayList<Integer>() {{
-			add(2);
-			add(3);
-		}};		
+		ArrayList<Integer> primos = new ArrayList<Integer>();		
 		
-		System.out.print("Introduce cuántos primos quieres");
+		System.out.print("Introduce cuántos primos quieres: ");
 		
 		int limite = sc.nextInt();		
 		boolean noprimo = false;
@@ -28,16 +24,26 @@ public class Prueba {
 		
 		leerFichero(primos);
 		
-		int num = primos.get(primos.size() - 1);
+		int num = 0;
 		
-		System.out.println("\n\nNúmeros primos anteriores:");
-						
-		System.out.println("\nNúmeros primos nuevos:");
-		
-		while (primos.size() < limite) {
-			num += 2;
+		if(primos.size() != 0) {
+			num = primos.size() - 1;
+		}
 			
-			 for (int i = primos.size() - 1; i >= 0 && !noprimo; i--) {
+		while (primos.size() < limite) {
+			
+			switch(num) {
+				case 2:
+					num++;
+					
+					break;
+				default:
+					num += 2;
+					
+					break;
+			}
+			
+			for (int i = primos.size() - 1; i >= 0 && !noprimo; i--) {
 				if(num % primos.get(i) == 0) {
 					noprimo = true;
 				}
@@ -83,15 +89,15 @@ public class Prueba {
 	}
 	
 	public static void escribirFichero(ArrayList<Integer> primos) {
-		File log = new File(FICHERO_USER);
+		File fprimos = new File(FICHERO_USER);
 		FileWriter escritor = null;
 				
 		try {
-			log.createNewFile();
-			escritor = new FileWriter(log);
+			fprimos.createNewFile();
+			escritor = new FileWriter(fprimos);
 			
 			for (int i : primos) {
-				escritor.append(String.valueOf(i) + "\r\n");
+				escritor.append(i + "\r\n");
 			}
 									
 		} catch(IOException ioe) {
